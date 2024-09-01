@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Your name here"/>
+
+
+	<title>Task 1.3 - Drawing SVGs</title>
+	<!--Insert description of exercise  -->
+
+	<link rel="stylesheet" href="Lab 1-3.css" />
+
+</head>
+
+<body>
+    <h1 class="title">LAB 1.3 - Drawing SVGs</h1>
+
+    <a class="button" href="../index.html"><button>HOME PAGE</button></a>
+	<a class="button" href="./Lab 1-1.html"><button>LAB 1.1</button></a>
+	<a class="button" href="./Lab 1-2.html"><button>LAB 1.2</button></a>
+	<a class="button" href="./Lab 1-3.html"><button>LAB 1.3</button></a>
+
+    <section class="container">
+	<h1>Drawing Shapes with SVG</h1>
+	
+	<svg width="500" height="50" style="background-color:slategrey;">
+		<g transform="translate(20, 0)">
+            <circle cx="25", cy="30", r="25" fill="cornflowerblue"></circle>
+            <rect x="50", y="5", width="50", height="50", fill="rgb(100,149,237)" />
+            <ellipse cx="140" cy="30" rx="40" ry="25" fill="rgba(100, 149, 237, 0.5)"></ellipse>
+            <Line x1="0" y1="30" x2="180" y2="30" stroke="black" stroke-width="5" />
+        </g>       
+	</svg>
+
+    </section>
+
+    <section class="container2">
+
+    <h1>Drawing Shapes with SVG</h1>
+    <p>Pet ownership in 2019</p>
+
+    <svg width="500" height="300" style="background-color:slategrey;">
+        <g transform ="translate(20,0)">
+            <rect x="20", y="170", width="50", height="80", fill="rgb(100,149,237)" />
+            <rect x="75", y="190", width="50", height="60", fill="rgb(100,149,237)" />
+            <rect x="130", y="230", width="50", height="20", fill="rgb(100,149,237)" />
+            <rect x="185", y="242", width="50", height="8", fill="rgb(100,149,237)" />
+            <rect x="240", y="247", width="50", height="3", fill="rgb(100,149,237)" />
+            <rect x="295", y="247", width="50", height="3", fill="rgb(100,149,237)" />
+            
+        </g>
+    </svg>
+
+    </section>
+
+	<footer style="color:grey">COS30045 Data Visualization<br>
+								YAP WEI CHENG
+	</footer>
+
+</body>
+</html>

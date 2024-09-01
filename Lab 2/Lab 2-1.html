@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8"/>
+	<meta name="description"	content="Data Visualisation Exercise 1"/>
+	<meta name="keywords"		  content="HTML, CSS"/>
+	<meta name="author"			  content="Your name here"/>
+
+	<title>Task 2.1 D3 Data - Binding</title>
+	 <script src="https://d3js.org/d3.v7.min.js"></script>
+	 <link rel='stylesheet' href="Lab 2-1.css">
+
+</head>
+
+<body>
+
+	<h1 class="title">LAB 2.1 - D3 Drawing with Data - Binding</h1>
+
+	<a class="button" href="../index.html"><button>HOME PAGE</button></a>
+	<a class="button" href="./Lab 2-1.html"><button>LAB 2.1</button></a>
+	<a class="button" href="./Lab 2-2.html"><button>LAB 2.2</button></a>
+	<a class="button" href="./Lab 2-3.html"><button>LAB 2.3</button></a>
+	<a class="button" href="./Lab 2-4.html"><button>LAB 2.4</button></a>
+
+
+	<h1>The D3 Journey starts here...</h1>
+
+	<script>
+		// d3.select("body")
+		// .append("p")
+		// .text("New paragraph!");
+
+
+	// var dataset = [14, 5, 26, 23, 9];
+
+	// 	d3.select("body").selectAll("p")
+	// 		.data(dataset)
+	// 		.enter()
+	// 		.append("p")
+	// 		.text("New Paragraph");
+
+	var dataset = [14, 5, 26, 23, 9];  //Since we have 5 data, it will loop 5 times
+
+		// d3.select("body").selectAll("p")
+		// 	.data(dataset)
+		// 	.enter()
+		// 	.append("p") 					//.append is use to summon <p>
+		// 	.text(function(d) {				//function d will read the dataset
+		// 		return d;
+		// 	});
+		
+
+			d3.select("body").selectAll("p")
+			.data(dataset)
+			.enter()
+			.append("p") 					//.append is use to summon <p>
+			.style("color", function(d){ 
+					if(d > 10){
+						return "red";
+					}
+			})
+				.text(function(d) 
+			{			
+				if(d > 10) {
+					return "Warning: NAME watched " + d + " cat videos today."; 
+				}
+				else {
+					return "NAME watched " + d + " cat videos today.";
+				}
+			});
+
+	</script>
+
+	<br>
+	<bf>
+		<footer style="color:grey">COS30045 Data Visualisation <br>
+		YAP WEI CHENG</footer>
+
+
+	
+
+</body>
+</html>
