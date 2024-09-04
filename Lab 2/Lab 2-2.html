@@ -45,7 +45,7 @@
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h)
-			.attr("fill", "rgb(106, 90, 205)");
+			.attr("fill", "limegreen");
 
 
 		// svg.selectAll("rect")
@@ -105,10 +105,10 @@
 		})
 		.attr("fill","black")
 		.attr("x",function(d,i) {
-			return i* (w/dataset.length)+ 40;
+			return i* (w/dataset.length)+ 40;			// +40 This part move the horizontal of the text number
 		})
 		.attr("y",function(d){
-			return h-(d*4);
+			return h-(d*4) + 15; 							//IF want to make the text to most bottom, write return h - 1;
 		});
 
 	</script>
