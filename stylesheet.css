@@ -8,7 +8,7 @@ h1 {
     color: #003366;
 }
 
-#lab1 h2, #lab2 h2 {
+#lab1 h2, #lab2 h2, #lab3 h2 {
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -31,13 +31,22 @@ h1 {
     font-family: 'Arial', sans-serif;
 }
 
+#lab3 h2 {
+    background-color: rgb(11, 169, 11);
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+}
+
 #lab1 {
     background-color: #fbe9e7;
-
 }
 
 #lab2 {
     background-color: #d9eaff;
+}
+
+#lab3 {
+    background-color: rgb(214, 236, 214);
 }
 
 #buttonlab1 {
@@ -48,6 +57,10 @@ h1 {
 #buttonlab2 {
     background-color: #3399ff;
     border-color: #007acc;
+}
+
+#buttonlab3 {
+    background-color: lightgreen;
 }
 
 .container {
