@@ -14,7 +14,12 @@
 	<style>
 		h1 {
 			margin-bottom: 50px;
+
 		}
+        svg {
+            align-items: center;
+            justify-content: center;
+        }
 
 
 	</style>
@@ -23,7 +28,7 @@
 
 <body>
 
-    <h1 class="title">LAB 3.1 - D3 Drawing with Data - Scatter Plot</h1>
+    <h1 class="title">LAB 3.2 - D3 Drawing with Data - Scatter Plot</h1>
 
     <a class="button" href="../index.html"><button>HOME PAGE</button></a>
     <a class="button" href="/Lab 3/Lab 3-1.html"><button>LAB 3.1</button></a>
@@ -35,40 +40,49 @@
 	<script>
 
 
-        var w = 800;
-        var h = 300;
-        var padding = 60;
+        var w = 1000;
+        var h = 600 ;
+        var padding = 100;
 
         var dataset = [
-                        [5, 20],
-                        [500, 90],
-                        [250, 50],
-                        [100, 33],
-                        [330, 95],
-                        [410, 12],
-                        [475, 44],
-                        [25, 67],
-                        [85, 21],
-                        [220, 88],
+                        [2,8],
+                        [3,5],
+                        [5,17],
+                        [6,6],
+                        [6,12],
+                        [7,20],
+                        [8,22],
+                        [10,11],
+                        [5,12],
+                        [6,16],
         ];
 
         var xScale = d3.scaleLinear()
                     .domain([d3.min(dataset, function(d) {
                         return d[0];
-                    }),
+                    }) -2 ,
                             d3.max(dataset, function(d) {
                         return d[0];
-                    }) ])
+                    }) + 2] )
                     .range([padding, w - padding]);
 
         var yScale = d3.scaleLinear()
                     .domain([d3.min(dataset, function(d) {
                         return d[1];
-                    }),
+                    }) - 5,
                             d3.max(dataset, function(d) {
                         return d[1];
                     }) ])
                     .range([h - padding, padding]);
+
+        var xAxis = d3.axisBottom()
+                    .ticks(6)
+                    .scale(xScale);
+
+        var yAxis = d3.axisLeft()
+                    .ticks(8)
+                    .scale(yScale);
+        
 
         var svg = d3.select("body")
                     .append("svg")
@@ -86,7 +100,7 @@
             .attr("cy", function(d) {
                 return yScale(d[1]);
             })
-            .attr("r", 5)                      
+            .attr("r", 5)                      //to add bigger area, REQUIRED 3rd dataset for "r", and .attr ("r", function(d))
             .attr("fill", "slategrey");
         
         svg.selectAll("text")
@@ -97,16 +111,38 @@
             return d[0] + "," + d[1];
         })
         .attr("x", function(d) {
-            return xScale(d[0] + 10);
+            return xScale(d[0] + 0.15);
         })
         .attr("y", function(d) {
             return yScale(d[1]);
-        });
+        })
+        .attr("fill", "limegreen");
+
+        svg.append("g")
+            .attr("transform", "translate(0, "+ (h - padding) +")")
+            .call(xAxis);
+
+        svg.append("g")
+            .attr("transform", "translate(" + padding + ", 0)")
+            .call(yAxis);
+
+        svg.append("text")
+            .attr("text-anchor","end")
+            .attr("x", w - padding - 20)
+            .attr("y", h - padding + 40)
+            .text("Tree Age (year)");
+
+        svg.append("text")
+            .attr("text-anchor", "end")
+            .attr("transform", "rotate(-90)")
+            .attr("y", padding / 2) 
+            .attr("x", -h / 4) 
+            .text("Tree Height (m)")   
 
 	</script>
 
 	<br>
-	<bf>
+	<b>
 		<footer style="color:grey">COS30045 Data Visualisation <br>
 		YAP WEI CHENG</footer>
 
