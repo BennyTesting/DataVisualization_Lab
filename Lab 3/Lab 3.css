@@ -1,11 +1,11 @@
 body {
-    background-color: #d9eaff;
+    background-color:rgb(214, 236, 214);
 }
 
 .title {
     text-align: center;
-    background-color: #003366;
-    color:  #e0e0e0;
+    background-color:  rgb(11, 169, 11);
+    color: #333333;
     margin: 0 0 20px 0;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -16,7 +16,7 @@ h1 {
     font-family: 'Arial', sans-serif;
     font-size: 2.5em; 
     font-weight: bold;
-    color: #003366;
+    color: rgb(17, 111, 17);
 }
 
 .button {
@@ -25,11 +25,11 @@ h1 {
 
 button {
     padding: 10px;
-    background-color: #E0F7FA;
+    background-color: #d7f9d9;
     font-weight: bold;
     font-size: 15px;
-    color: #4682B4;
-    border-color: #4682B4;
+    color: #25b116;
+    border-color: #059700;
 }
 
 footer {

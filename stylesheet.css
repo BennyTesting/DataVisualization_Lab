@@ -1,5 +1,8 @@
 body {
-    background-color: #e0f2f1;
+    background-image: url(sky.jpeg);
+    background-size: cover; 
+    background-repeat: no-repeat; 
+    background-position: center; 
 }
 h1 {
     text-align: center;
@@ -8,7 +11,12 @@ h1 {
     color: #003366;
 }
 
-#lab1 h2, #lab2 h2, #lab3 h2 {
+.lab4 {
+    text-align: center;
+    vertical-align: center;
+}
+
+#lab1 h2, #lab2 h2, #lab3 h2, #lab4 h2, #lab5 h2{
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -37,6 +45,18 @@ h1 {
     color: #333333;
 }
 
+#lab4 h2 {
+    background-color: slateblue;
+    font-family: 'Arial', sans-serif;
+    color:  #e0e0e0;  
+}
+
+#lab5 h2 {
+    background-color: firebrick;
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+}
+
 #lab1 {
     background-color: #fbe9e7;
 }
@@ -47,6 +67,14 @@ h1 {
 
 #lab3 {
     background-color: rgb(214, 236, 214);
+}
+
+#lab4 {
+    background-color: rgb(216, 212, 245);
+}
+
+#lab5 {
+    background-color: rgb(241, 199, 199);
 }
 
 #buttonlab1 {
@@ -61,6 +89,12 @@ h1 {
 
 #buttonlab3 {
     background-color: lightgreen;
+    border-color: rgb(63, 216, 63);
+}
+
+#buttonlab5 {
+    background-color: rgb(241, 100, 100);
+    border-color: rgb(208, 13, 13);
 }
 
 .container {
@@ -71,8 +105,6 @@ h1 {
 section {
     flex: 1;
     margin: 0 20px 20px 20px;
-    border: 1px solid #ccc;
-    border-color: #fbe9e7;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
@@ -95,8 +127,8 @@ button {
     display: inline-block;
     padding: 10px 20px;
     text-align: center;
-    text-decoration: none; /* Remove underline */
-    width: 100%; /* Full width */
+    text-decoration: none; 
+    width: 100%; 
 }
 
 
