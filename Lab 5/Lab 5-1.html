@@ -53,7 +53,7 @@
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h)
-			.attr("fill", "limegreen");
+			.attr("fill", "slategrey");
 
 			svg.selectAll("rect")
             .data(dataset)
@@ -70,28 +70,28 @@
                 return h - yScale(d); // Correct height calculation
             });
 
-            svg.selectAll("text")
-            .data(dataset)
-            .enter()
-            .append("text")
-            .text(function(d) {
-                return d;
-            })
-            .attr("fill", "black")
-            .attr("x", function(d, i) {
-                return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
-            })
-            .attr("y", function(d) {
-                return yScale(d) - 5; // Position text above the bar
-            })
-            .attr("text-anchor", "middle");
+            // svg.selectAll("text")
+            // .data(dataset)
+            // .enter()
+            // .append("text")
+            // .text(function(d) {
+            //     return d;
+            // })
+            // .attr("fill", "black")
+            // .attr("x", function(d, i) {
+            //     return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
+            // })
+            // .attr("y", function(d) {
+            //     return yScale(d) - 5; // Position text above the bar
+            // })
+            // .attr("text-anchor", "middle");
 
         d3.select("#update").on("click", function() {
             var numValues = dataset.length;
             dataset = [];
 
             for (var i = 0; i < numValues; i++) {
-                var newNumber = Math.floor(Math.random() * maxValue);
+                var newNumber = Math.floor((Math.random() * maxValue) + 1);
                 dataset.push(newNumber);
             }
 
@@ -106,19 +106,20 @@
             });
 
         // Update text
-		svg.selectAll("text")
-            .data(dataset)
-            .text(function(d) {
-            return d;
-            })
-            .attr("fill", "black")
-            .attr("x", function(d, i) {
-				return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
-			})
-			.attr("y", function(d) {
-				return yScale(d) - 5; // Position text above the bar
-			})
-			.attr("text-anchor", "middle"); // Center the text
+		// svg.selectAll("text")
+        //     .data(dataset)
+        //     .text(function(d) {
+        //     return d;
+        //     })
+        //     .attr("fill", "black")
+        //     .attr("x", function(d, i) {
+		// 		return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
+		// 	})
+		// 	.attr("y", function(d) {
+		// 		return yScale(d) - 5; // Position text above the bar
+		// 	})
+		// 	.attr("text-anchor", "middle"); // Center the text
+
 			});
 
 

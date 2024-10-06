@@ -16,7 +16,7 @@ h1 {
     vertical-align: center;
 }
 
-#lab1 h2, #lab2 h2, #lab3 h2, #lab4 h2, #lab5 h2{
+#lab1 h2, #lab2 h2, #lab3 h2, #lab4 h2, #lab5 h2, #lab6 h2{
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -56,6 +56,11 @@ h1 {
     font-family: 'Arial', sans-serif;
     color: #333333;
 }
+#lab6 h2 {
+    background-color: rgb(135, 0, 165);
+    font-family: 'Arial', sans-serif;
+    color:#e0e0e0; 
+}
 
 #lab1 {
     background-color: #fbe9e7;
@@ -76,6 +81,9 @@ h1 {
 #lab5 {
     background-color: rgb(241, 199, 199);
 }
+#lab6 {
+    background-color:rgb(226, 167, 239);
+}
 
 #buttonlab1 {
     background-color: #ff9800;
@@ -95,6 +103,11 @@ h1 {
 #buttonlab5 {
     background-color: rgb(241, 100, 100);
     border-color: rgb(208, 13, 13);
+}
+
+#buttonlab6 {
+    background-color:rgb(217, 99, 244);
+    border-color: rgb(182, 84, 204);
 }
 
 .container {

@@ -54,7 +54,7 @@
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h)
-			.attr("fill", "limegreen");
+			.attr("fill", "slategrey");
 
 			svg.selectAll("rect")
             .data(dataset)
@@ -71,21 +71,21 @@
                 return h - yScale(d); // Correct height calculation
             });
 
-            svg.selectAll("text")
-            .data(dataset)
-            .enter()
-            .append("text")
-            .text(function(d) {
-                return d;
-            })
-            .attr("fill", "black")
-            .attr("x", function(d, i) {
-                return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
-            })
-            .attr("y", function(d) {
-                return yScale(d) - 5; // Position text above the bar
-            })
-            .attr("text-anchor", "middle");
+            // svg.selectAll("text")
+            // .data(dataset)
+            // .enter()
+            // .append("text")
+            // .text(function(d) {
+            //     return d;
+            // })
+            // .attr("fill", "black")
+            // .attr("x", function(d, i) {
+            //     return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
+            // })
+            // .attr("y", function(d) {
+            //     return yScale(d) - 5; // Position text above the bar
+            // })
+            // .attr("text-anchor", "middle");
 
 
 
@@ -127,7 +127,7 @@
             var numValues = dataset.length;
             dataset = [];
             for (var i = 0; i < numValues; i++) {
-                var newNumber = Math.floor(Math.random() * maxValue);
+                var newNumber = Math.floor((Math.random() * maxValue) + 1);
                 dataset.push(newNumber);
             }
             // Update rectangles
@@ -143,23 +143,23 @@
                     return h - yScale(d); // Ensure height is correct
                 });
 
-            // Update text
-            svg.selectAll("text")
-                .data(dataset)
-                .transition()
-                .duration(2000)
-                .ease(d3.easeCircleOut)
-                .text(function(d) {
-                return d;
-                })
-                .attr("fill", "black")
-                .attr("x", function(d, i) {
-                    return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
-                })
-                .attr("y", function(d) {
-                    return yScale(d) - 5; // Position text above the bar
-                })
-                .attr("text-anchor", "middle"); // Center the text
+            // // Update text
+            // svg.selectAll("text")
+            //     .data(dataset)
+            //     .transition()
+            //     .duration(2000)
+            //     .ease(d3.easeCircleOut)
+            //     .text(function(d) {
+            //     return d;
+            //     })
+            //     .attr("fill", "black")
+            //     .attr("x", function(d, i) {
+            //         return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
+            //     })
+            //     .attr("y", function(d) {
+            //         return yScale(d) - 5; // Position text above the bar
+            //     })
+            //     .attr("text-anchor", "middle"); // Center the text
                 });
 
 
@@ -186,26 +186,26 @@
                     return h - yScale(d); // Ensure height is correct
                 });
 
-            // Update text
-            svg.selectAll("text")
-                .data(dataset)
-                .transition()
-                .duration(1000)
-                .delay(function (d, i) {
-                    return i/dataset.length * 100;
-                })
-                .ease(d3.easeCubicInOut)
-                .text(function(d) {
-                return d;
-                })
-                .attr("fill", "black")
-                .attr("x", function(d, i) {
-                    return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
-                })
-                .attr("y", function(d) {
-                    return yScale(d) - 5; // Position text above the bar
-                })
-                .attr("text-anchor", "middle"); // Center the text
+            // // Update text
+            // svg.selectAll("text")
+            //     .data(dataset)
+            //     .transition()
+            //     .duration(1000)
+            //     .delay(function (d, i) {
+            //         return i/dataset.length * 100;
+            //     })
+            //     .ease(d3.easeCubicInOut)
+            //     .text(function(d) {
+            //     return d;
+            //     })
+            //     .attr("fill", "black")
+            //     .attr("x", function(d, i) {
+            //         return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
+            //     })
+            //     .attr("y", function(d) {
+            //         return yScale(d) - 5; // Position text above the bar
+            //     })
+            //     .attr("text-anchor", "middle"); // Center the text
                 });
 
 

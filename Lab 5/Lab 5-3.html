@@ -55,7 +55,7 @@
 			.append("svg")
 			.attr("width", w)
 			.attr("height", h)
-			.attr("fill", "limegreen");
+			.attr("fill", "slategrey");
 
 			svg.selectAll("rect")
             .data(dataset)
@@ -72,21 +72,21 @@
                 return h - yScale(d); // Correct height calculation
             });
 
-            svg.selectAll("text")
-            .data(dataset)
-            .enter()
-            .append("text")
-            .text(function(d) {
-                return d;
-            })
-            .attr("fill", "black")
-            .attr("x", function(d, i) {
-                return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
-            })
-            .attr("y", function(d) {
-                return yScale(d) - 5; // Position text above the bar
-            })
-            .attr("text-anchor", "middle");
+            // svg.selectAll("text")
+            // .data(dataset)
+            // .enter()
+            // .append("text")
+            // .text(function(d) {
+            //     return d;
+            // })
+            // .attr("fill", "black")
+            // .attr("x", function(d, i) {
+            //     return xScale(i) + xScale.bandwidth() / 2; // Center text in the bar
+            // })
+            // .attr("y", function(d) {
+            //     return yScale(d) - 5; // Position text above the bar
+            // })
+            // .attr("text-anchor", "middle");
 
 
         // d3.select("#add").on("click", function() {
@@ -118,101 +118,122 @@
         //                 return yScale(d);
         //             });
 
-    d3.select("#add").on("click", function() {
-        var newNumber = Math.floor(Math.random() * maxValue);
-        dataset.push(newNumber);
+        d3.select("#add").on("click", function() {
 
-        // Update xScale
-        xScale.domain(d3.range(dataset.length));
+var newNumber = Math.floor((Math.random() * maxValue) + 1);
+dataset.push(newNumber);
 
-        // Bind new data to bars
-        var bars = svg.selectAll("rect")
-            .data(dataset);
+// Update xScale
+xScale.domain(d3.range(dataset.length));
 
-        // Enter new bars
-        bars.enter()
-            .append("rect")
-            .attr("x", w)
-            .attr("y", function(d) {
-                return yScale(d);
-            })
-            .attr("width", xScale.bandwidth())
-            .attr("height", function(d) {
-                return h - yScale(d); // Correct height calculation
-            })
-            .merge(bars) // Update existing bars
-            .transition()
-            .duration(500)
-            .attr("x", function(d, i) {
-                return xScale(i);
-            })
-            .attr("y", function(d) {
-                return yScale(d);
-            })
-            .attr("width", xScale.bandwidth())
-            .attr("height", function(d) {
-                return h - yScale(d); // Correct height calculation
-            });
+// Bind new data to bars
+var bars = svg.selectAll("rect")
+    .data(dataset);
 
-        // Bind new data to texts
-        var texts = svg.selectAll("text")
-            .data(dataset);
+// Enter new bars
+bars.enter()
+    .append("rect")
+    .attr("x", w)
+    .attr("y", function(d) {
+        return yScale(d);
+    })
+    .attr("width", xScale.bandwidth())
+    .attr("height", function(d) {
+        return h - yScale(d); // Correct height calculation
+    })
+    
+    .merge(bars) // Update existing bars
+    .transition()
+    .duration(500)
+    .attr("x", function(d, i) {
+        return xScale(i);
+    })
+    .attr("y", function(d) {
+        return yScale(d);
+    })
+    .attr("width", xScale.bandwidth())
+    .attr("height", function(d) {
+        return h - yScale(d); // Correct height calculation
+    })
 
-        // Enter new text elements
-        texts.enter()
-            .append("text")
-            .attr("fill", "black")
-            .attr("text-anchor", "middle")
-            .attr("x", function(d, i) {
-                return xScale(i) + xScale.bandwidth() / 2; // Center the text
-            })
-            .attr("y", function(d) {
-                return yScale(d) - 5; // Position above the bar
-            })
-            .text(function(d) {
-                return d; // Set text to the value
-            })
-            .merge(texts) // Update existing text
-            .transition()
-            .duration(500)
-            .attr("x", function(d, i) {
-                return xScale(i) + xScale.bandwidth() / 2; // Center the text
-            })
-            .attr("y", function(d) {
-                return yScale(d) - 5; // Position above the bar
-            })
-            .text(function(d) {
-                return d; // Update text to reflect new data
-            });
+
+// // Bind new data to texts
+// var texts = svg.selectAll("text")
+//     .data(dataset);
+
+// // Enter new text elements
+// texts.enter()
+//     .append("text")
+//     .attr("fill", "black")
+//     .attr("text-anchor", "middle")
+//     .attr("x", function(d, i) {
+//         return xScale(i) + xScale.bandwidth() / 2; // Center the text
+//     })
+//     .attr("y", function(d) {
+//         return yScale(d) - 5; // Position above the bar
+//     })
+//     .text(function(d) {
+//         return d; // Set text to the value
+//     })
+//     .merge(texts) // Update existing text
+//     .transition()
+//     .duration(500)
+//     .attr("x", function(d, i) {
+//         return xScale(i) + xScale.bandwidth() / 2; // Center the text
+//     })
+//     .attr("y", function(d) {
+//         return yScale(d) - 5; // Position above the bar
+//     })
+//     .text(function(d) {
+//         return d; // Update text to reflect new data
+//     });
 });
 
 
-            d3.select("#delete").on("click", function() {
-            
-                dataset.shift();
-                xScale.domain(d3.range(dataset.length));
+d3.select("#delete").on("click", function() {
+    // Remove the first element from the dataset
+    dataset.pop();
 
-                var bars = svg.selectAll("rect")
-                    .data(dataset)
+    // Update the xScale domain
+    xScale.domain(d3.range(dataset.length));
 
-                bars.exit()
-                .transition()
-                .duration(500)
-                .attr("x",w)    
-                .remove();
+    // Bind updated data to the bars
+    var bars = svg.selectAll("rect")
+        .data(dataset);
+
+    // Exit transition for bars that are removed
+    bars.exit()
+        .transition()
+        .duration(500)
+        .attr("x", w)    
+        .remove();
+
+    // Update existing bars
+    bars.transition()
+        .duration(500)
+        .attr("x", function(d, i) {
+            return xScale(i);
+        })
+        .attr("y", function(d) {
+            return yScale(d);
+        })
+        .attr("width", xScale.bandwidth())
+        .attr("height", function(d) {
+            return h - yScale(d);
+        });
                 
 
 
-                // Bind data to texts
-                var texts = svg.selectAll("text")
-                    .data(dataset);
+                // // Bind data to texts
+                // var texts = svg.selectAll("text")
+                //     .data(dataset);
 
-                // Exit transition for texts
-                texts.exit()
-                    .transition()
-                    .duration(500)
-                    .attr("opacity", 0) // Fade out effect
-                    .remove();
+                // // Exit transition for texts
+                // texts.exit()
+                //     .transition()
+                //     .duration(500)
+                //     .attr("opacity", 0) // Fade out effect
+                //     .remove();
     
                 })
 	</script>
