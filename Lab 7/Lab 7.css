@@ -57,7 +57,7 @@ h1 {
     color:#2f00ba;
 }
 
-#sort {
+#Asort {
     padding: 10px;
     margin-left:15px;
     font-weight: bold;
@@ -66,6 +66,23 @@ h1 {
     text-transform: uppercase;
     border-color: #ab00ad;
     color:#92007e;
+}
+
+#Dsort {
+    padding: 10px;
+    margin-left:15px;
+    font-weight: bold;
+    background: #c0faaf;
+    border-width: 5px;
+    text-transform: uppercase;
+    border-color: #3eb110;
+    color:#18851d;
+}
+
+.line {
+    fill: none;
+    stroke: slategrey;
+    stroke-width: 0.5;
 }
 
 
