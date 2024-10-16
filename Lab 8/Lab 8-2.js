@@ -35,7 +35,7 @@ function init() {
         ]);
 
         // Load GeoJSON data for LGAs
-        d3.json("LGA_VIC.json").then(function(json) {
+        d3.json("https://raw.githubusercontent.com/BennyTesting/DataVisualization_Lab/refs/heads/main/Lab%208/LGA_VIC.json").then(function(json) {
             // Merge unemployment data with GeoJSON
             data.forEach(function(d) {
                 var dataLGA = d.LGA;
