@@ -2,11 +2,6 @@ body {
     background-color:rgb(226, 167, 239);
 }
 
-svg {
-
-    justify-content: center;
-    align-items: center;
-}
 
 .title {
     text-align: center;
@@ -35,54 +30,22 @@ h1 {
     margin-left: 10px;
 }
 
-#add {
-    padding: 10px;
-    margin-left: 10px;
-    font-weight: bold;
-    background: #ffbdbd;
-    border-width: 5px;
-    text-transform: uppercase;
-    border-color: #ff0000;
-    color:#700303;
-}
 
-#delete {
-    padding: 10px;
-    margin-left:15px;
-    font-weight: bold;
-    background: #cbc7fa;
-    border-width: 5px;
-    text-transform: uppercase;
-    border-color: #3201b8;
-    color:#2f00ba;
-}
-
-#Asort {
-    padding: 10px;
-    margin-left:15px;
-    font-weight: bold;
-    background: #ffc5ff;
-    border-width: 5px;
-    text-transform: uppercase;
-    border-color: #ab00ad;
-    color:#92007e;
-}
-
-#Dsort {
-    padding: 10px;
-    margin-left:15px;
-    font-weight: bold;
-    background: #c0faaf;
-    border-width: 5px;
-    text-transform: uppercase;
-    border-color: #3eb110;
-    color:#18851d;
-}
-
-.line {
-    fill: none;
+.area {
+    fill: slategrey;
     stroke: slategrey;
     stroke-width: 0.5;
+}
+
+.line.halfMilMark {
+    stroke: red; /* Set stroke color to red */
+    stroke-dasharray: 2, 3; /* Create a dotted line */
+    fill: none; /* Ensure fill is none for line */
+}
+
+.halfMilLabel {
+    fill: red; /* Set text color to red */
+    font-weight: bold; /* Optional: make the text bold */
 }
 
 
