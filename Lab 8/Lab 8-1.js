@@ -14,7 +14,7 @@ var svg = d3.select("body")
             .append("svg")
             .attr("width", w)
             .attr("height", h)
-            .attr("fill", "steelblue")
+            .attr("fill", "grey");
 
     d3.json("LGA_VIC.json").then(function(json) {
 
@@ -22,6 +22,8 @@ var svg = d3.select("body")
         .data(json.features)
         .enter()
         .append("path")
-        .attr("d", path);
+        .attr("d", path)
+        .attr("stroke", "black") // Set stroke color
+        .attr("stroke-width", 0.3) // Set stroke width
 
     });

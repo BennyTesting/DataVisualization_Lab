@@ -16,7 +16,7 @@ h1 {
     vertical-align: center;
 }
 
-#lab1 h2, #lab2 h2, #lab3 h2, #lab4 h2, #lab5 h2, #lab6 h2{
+#lab1 h2, #lab2 h2, #lab3 h2, #lab4 h2, #lab5 h2, #lab6 h2, #lab7 h2, #lab8 h2{
     display: flex; 
     align-items: center; 
     justify-content: center; 
@@ -62,6 +62,18 @@ h1 {
     color:#e0e0e0; 
 }
 
+#lab7 h2 {
+    background-color: rgb(255, 230, 0);
+    font-family: 'Arial', sans-serif;
+    color: #333333;
+}
+
+#lab8 h2 {
+    background-color: #864c00;
+    font-family: 'Arial', sans-serif;
+    color:#e0e0e0;
+}
+
 #lab1 {
     background-color: #fbe9e7;
 }
@@ -83,6 +95,14 @@ h1 {
 }
 #lab6 {
     background-color:rgb(226, 167, 239);
+}
+
+#lab7 {
+    background-color: #fef0b8;
+}
+
+#lab8 {
+    background-color: #bd9055;
 }
 
 #buttonlab1 {
@@ -108,6 +128,16 @@ h1 {
 #buttonlab6 {
     background-color:rgb(217, 99, 244);
     border-color: rgb(182, 84, 204);
+}
+
+#buttonlab7 {
+    background-color: #fdfd61;
+    border-color: #ffff15;
+}
+
+#buttonlab8 {
+    background-color: #8c6634;
+    border-color: #845820;
 }
 
 .container {

@@ -1,11 +1,11 @@
 body {
-    background-color:rgb(226, 167, 239);
+    background-color: #bd9055;
 }
 
 
 .title {
     text-align: center;
-    background-color: rgb(135, 0, 165);
+    background-color: #864c00;
     color:#e0e0e0;
     margin: 0 0 20px 0;
     padding-top: 20px;
@@ -17,36 +17,29 @@ h1 {
     font-family: 'Arial', sans-serif;
     font-size: 2.5em; 
     font-weight: bold;
-    color: rgb(135, 0, 165);
+    color: rgb(112, 68, 25);
 }
 
 .button {
     padding: 10px;
-    background-color: rgb(241, 208, 248);
+    background-color: rgb(226, 197, 169);
     font-weight: bold;
     font-size: 15px;
-    color: rgb(135, 0, 165);
-    border-color: #700980;
+    color: rgb(155, 102, 16);
+    border-color: #6e471a;
     margin-left: 10px;
 }
 
-
+svg {
+    background-color: #fff;
+    padding: 20px 20px 20px 0;
+}
 .area {
     fill: slategrey;
     stroke: slategrey;
     stroke-width: 0.5;
 }
 
-.line.halfMilMark {
-    stroke: red; /* Set stroke color to red */
-    stroke-dasharray: 2, 3; /* Create a dotted line */
-    fill: none; /* Ensure fill is none for line */
-}
-
-.halfMilLabel {
-    fill: red; /* Set text color to red */
-    font-weight: bold; /* Optional: make the text bold */
-}
 
 
 footer {

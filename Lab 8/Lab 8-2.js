@@ -1,6 +1,5 @@
-function init() {
-    var w = 500;  // Adjust the width
-    var h = 300;  // Adjust the height
+    var w = 500;  
+    var h = 300;  
 
     // Create SVG container
     var svg = d3.select("body")
@@ -25,6 +24,7 @@ function init() {
                       "rgb(49,163,84)", 
                       "rgb(0,109,44)"
                   ]);
+		//Link : https://raw.githubusercontent.com/BennyTesting/DataVisualization_Lab/refs/heads/main/Lab%208/LGA_VIC.json
 
     // Load unemployment data
     d3.csv("VIC_LGA_unemployment.csv").then(function(data) {
@@ -35,19 +35,22 @@ function init() {
         ]);
 
         // Load GeoJSON data for LGAs
-        d3.json("https://raw.githubusercontent.com/BennyTesting/DataVisualization_Lab/refs/heads/main/Lab%208/LGA_VIC.json").then(function(json) {
+        d3.json("LGA_VIC.json").then(function(json) {
             // Merge unemployment data with GeoJSON
-            data.forEach(function(d) {
-                var dataLGA = d.LGA;
-                var dataValue = parseFloat(d.unemployed);
+            for (var i = 0; i < data.length; i++) {
+                var dataLGA = data[i].LGA;
+                var dataValue = parseFloat(data[i].unemployed);
 
-                // Find the corresponding LGA in GeoJSON
-                json.features.forEach(function(feature) {
-                    if (feature.properties.LGA_name === dataLGA) {
-                        feature.properties.unemployed = dataValue;
+                for (var j = 0; j < json.features.length; j++) {
+                    var jsonLGA = json.features[j].properties.LGA_name;
+
+                    if (dataLGA == jsonLGA) {
+                        json.features[j].properties.unemployed = dataValue;
+                        break;
                     }
-                });
-            });
+                }
+            }            
+            
 
             // Draw the map
             svg.selectAll("path")
@@ -58,9 +61,11 @@ function init() {
                .attr("fill", function(d) {
                    var value = d.properties.unemployed;
                    return value ? color(value) : "#ccc"; // Default color if no data
-               });
+               })
+               .attr("stroke", "black") // Set stroke color
+               .attr("stroke-width", 0.3) // Set stroke width
+               .attr("opacity", 0.7); // Optional: set opacity for the stroke
 
-            // Load city data and add circles
             d3.csv("VIC_city.csv").then(function(cityData) {
                 svg.selectAll("circle")
                    .data(cityData)
@@ -70,11 +75,33 @@ function init() {
                    .attr("cy", d => projection([+d.lon, +d.lat])[1])
                    .attr("r", 5)
                    .style("fill", "red")
-                   .style("opacity", 0.75);
-                        });
-                    });
-                });
-}
-//Testing
+                   .style("stroke", "grey")
+                   .style("opacity", 0.75)
+                   .on("mouseover", function(event, d) {
+                    d3.select(this) // Select the current circle
+                    .style("fill", "orange") // Change fill color
+                    .style("stroke", "grey")
+                    .attr("r", 6); // Increase radius
 
-window.onload = init;
+                    // Append text element
+                    svg.append("text")
+                       .attr("class", "city-label")
+                       .attr("x", projection([+d.lon, +d.lat])[0] + 10) // Position next to circle
+                       .attr("y", projection([+d.lon, +d.lat])[1])
+                       .text(d.place) // Adjust based on your data
+                       .style("font-size", "12px")
+                       .style("fill", "black");
+                })
+                    .on("mouseout", function(d) {
+                        d3.select(this)
+                        .style("fill", "red") // Revert fill color
+                        .attr("r", 5); // Revert radius
+
+                        // Remove the text element
+                        svg.selectAll(".city-label").remove();
+                   });
+            });
+        });
+    });
+
+window.onload = init;
