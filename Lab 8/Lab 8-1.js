@@ -10,7 +10,7 @@ var projection = d3.geoMercator()
 var path = d3.geoPath()
             .projection(projection);
 
-var svg = d3.select("body")
+var svg = d3.select("#map")
             .append("svg")
             .attr("width", w)
             .attr("height", h)
