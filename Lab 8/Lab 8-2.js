@@ -67,6 +67,8 @@
                .attr("opacity", 0.7); // Optional: set opacity for the stroke
 
             d3.csv("VIC_city.csv").then(function(cityData) {
+                const tooltip = d3.select("#tooltip");
+
                 svg.selectAll("circle")
                    .data(cityData)
                    .enter()
@@ -83,22 +85,18 @@
                     .style("stroke", "grey")
                     .attr("r", 6); // Increase radius
 
-                    // Append text element
-                    svg.append("text")
-                       .attr("class", "city-label")
-                       .attr("x", projection([+d.lon, +d.lat])[0] + 10) // Position next to circle
-                       .attr("y", projection([+d.lon, +d.lat])[1])
-                       .text(d.place) // Adjust based on your data
-                       .style("font-size", "12px")
-                       .style("fill", "black");
+                    tooltip.style("visibility", "visible")
+                    .text(d.place) // Display city name
+                    .style("left", (event.pageX + 5) + "px") // Position the tooltip
+                    .style("top", (event.pageY - 28) + "px");
                 })
                     .on("mouseout", function(d) {
                         d3.select(this)
                         .style("fill", "red") // Revert fill color
                         .attr("r", 5); // Revert radius
 
-                        // Remove the text element
-                        svg.selectAll(".city-label").remove();
+
+                        tooltip.style("visibility", "hidden");
                    });
             });
         });

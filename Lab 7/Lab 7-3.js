@@ -56,3 +56,22 @@ var rects = groups.selectAll("rect")
                 })
                 .attr("width", xScale.bandwidth());
 
+var legendKeys = ["grapes", "oranges", "apples"];
+
+var legend = svg.append("g")
+    .attr("transform", "translate(20, 20)"); // position it
+
+// Append rectangles and text for each legend item
+legendKeys.forEach((key, i) => {
+    legend.append("rect")
+        .attr("x", 0)
+        .attr("y", i * 20) // spacing between items
+        .attr("width", 18)
+        .attr("height", 18)
+        .style("fill", color(i)); // use the same color scale
+
+    legend.append("text")
+        .attr("x", 25) // spacing for text
+        .attr("y", i * 20 + 15) // align text vertically with the rectangles
+        .text(key);
+});
